@@ -6,8 +6,12 @@ RUN curl https://get.docker.com/builds/Linux/x86_64/docker-latest.tgz | tar xvz 
 
 
 USER 0
+RUN yum -y remove git*
+RUN yum -y install  https://centos7.iuscommunity.org/ius-release.rpm
+RUN yum -y install  git2u-all
+RUN git --version
 # Install Ansible
-RUN yum install -y ansible 
+RUN yum install -y ansible
 
 
 ## Copy in custom init scripts
